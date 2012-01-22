@@ -12,13 +12,25 @@ class BuildingACurriculum < Spinach::FeatureSteps
   end
 
   When 'I submit a curriculum' do
-    @args = Factory.build(:curriculum)
+    @args = Factory.build(:curriculum, name: 'Test Curriculum')
     page.driver.follow :post, curricula_path, curriculum: @args.attributes
   end
 
   Then 'I should see the curriculum' do
     within '.curriculum-module' do
-      page.must_have_content @args[:name]
+      page.must_have_content 'Test Curriculum'
     end
+  end
+
+  Given 'a curriculum exists' do
+    @curriculum = Factory(:curriculum)
+  end
+
+  When 'I am on the curriculum\'s page' do
+    visit curriculum_path(@curriculum)
+  end
+
+  Then 'I should see a link to create a sub-curriculum' do
+    page.must_have_link 'New Sub-Curriculum'
   end
 end
