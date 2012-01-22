@@ -1,0 +1,4 @@
+.curricula-module
+  %ul
+    - @curricula.each do |curriculum|
+      %li= link_to curriculum.title, curriculum

@@ -2,6 +2,7 @@ class CurriculumDecorator < ApplicationDecorator
   decorates :curriculum
 
   def content
+    return "" unless curriculum.content
     ::Redcarpet::Markdown.new(::Redcarpet::Render::HTML).render(curriculum.content).html_safe
   end
 

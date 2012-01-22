@@ -1,6 +1,11 @@
 .curriculum-module
   %h2= @curriculum.title
+  %ul.pills
+    %li= link_to 'New Sub-Curriculum', new_curriculum_path(parent_id: @curriculum.id)
+    %li= link_to 'Edit', edit_curriculum_path(@curriculum), rel: 'edit-curriculum'
   = @curriculum.content
 
-.links
-  = link_to 'New Sub-Curriculum', new_curriculum_path(parent_id: @curriculum.id)
+  - unless @curriculum.leaf?
+    = content_tag :ul do
+      - @curriculum.children.each do |child|
+        = render partial: "tree", locals: { curriculum: child.decorate }

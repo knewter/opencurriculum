@@ -1,0 +1,6 @@
+%li{ id: dom_id(curriculum) }
+  = link_to curriculum.name, curriculum
+  - unless curriculum.leaf?
+    = content_tag :ul do
+      - curriculum.children.each do |child|
+        = render partial: "tree", locals: { curriculum: child.decorate }

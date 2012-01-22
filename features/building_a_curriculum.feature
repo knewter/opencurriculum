@@ -3,6 +3,11 @@ Feature: Building a Curriculum
   As a contributor
   I want to build a curriculum
 
+  Scenario: Viewing the curricula index
+    Given there are some root and non-root curricula
+    When I am on the curricula index
+    Then I should see only root-level curricula
+
   Scenario: Seeing the new curriculum page
     When I am on the new curriculum page
     Then I should see a form
@@ -23,3 +28,9 @@ Feature: Building a Curriculum
     When I am on the curriculum's page
     And I create a new sub-curriculum
     Then I should see the sub-curriculum
+
+  Scenario: Editing  a curriculum
+    Given a curriculum exists
+    When I am on the curriculum's page
+    And I click the edit link
+    Then I should see a form

@@ -1,5 +1,20 @@
 class BuildingACurriculum < Spinach::FeatureSteps
   feature 'Building a Curriculum'
+
+  Given 'there are some root and non-root curricula' do
+    @root_curriculum = Factory(:curriculum, name: 'root')
+    Factory(:curriculum, name: 'sub', parent_id: @root_curriculum.id)
+  end
+
+  When 'I am on the curricula index' do
+    visit curricula_path
+  end
+
+  Then 'I should see only root-level curricula' do
+    page.must_have_content 'root'
+    page.wont_have_content 'sub'
+  end
+
   When 'I am on the new curriculum page' do
     visit new_curriculum_path
   end
@@ -48,5 +63,9 @@ class BuildingACurriculum < Spinach::FeatureSteps
       page.must_have_content 'Sub-Curriculum'
       page.must_have_content 'parent: Test Curriculum'
     end
+  end
+
+  When 'I click the edit link' do
+    find("a[rel='edit-curriculum']").click
   end
 end
