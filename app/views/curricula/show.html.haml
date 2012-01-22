@@ -1,5 +1,6 @@
 .curriculum-module
   %h2= @curriculum.title
+  = @curriculum.content
 
 .links
   = link_to 'New Sub-Curriculum', new_curriculum_path(parent_id: @curriculum.id)
