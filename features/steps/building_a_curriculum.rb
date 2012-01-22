@@ -33,4 +33,17 @@ class BuildingACurriculum < Spinach::FeatureSteps
   Then 'I should see a link to create a sub-curriculum' do
     page.must_have_link 'New Sub-Curriculum'
   end
+
+  When 'I create a new sub-curriculum' do
+    click_link 'New Sub-Curriculum'
+    fill_in 'Name', with: 'Sub-Curriculum'
+    click_button 'Create Curriculum'
+  end
+
+  Then 'I should see the sub-curriculum' do
+    within '.curriculum-module' do
+      page.must_have_content 'Sub-Curriculum'
+      page.must_have_content 'parent: Test Curriculum'
+    end
+  end
 end

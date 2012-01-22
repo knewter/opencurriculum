@@ -14,6 +14,7 @@ gem 'sass-rails',   '~> 3.1.5'
 gem 'inherited_resources'
 gem 'redcarpet'
 gem 'high_voltage'
+gem 'awesome_nested_set'
 
 # Gems used only for assets and not required
 # in production environments by default.

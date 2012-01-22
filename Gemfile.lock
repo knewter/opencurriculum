@@ -32,6 +32,8 @@ GEM
     ansi (1.4.1)
     archive-tar-minitar (0.5.2)
     arel (2.2.1)
+    awesome_nested_set (2.0.2)
+      activerecord (>= 3.0.0)
     bootstrap-sass (1.4.4)
       sass-rails (~> 3.1)
     builder (3.0.0)
@@ -199,6 +201,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_nested_set
   bootstrap-sass
   capybara_minitest_spec
   coffee-rails (~> 3.1.1)

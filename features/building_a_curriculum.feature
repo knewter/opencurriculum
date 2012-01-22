@@ -17,3 +17,9 @@ Feature: Building a Curriculum
     When I am on the curriculum's page
     Then I should see the curriculum
     And I should see a link to create a sub-curriculum
+
+  Scenario: Creating a sub-curriculum
+    Given a curriculum exists
+    When I am on the curriculum's page
+    And I create a new sub-curriculum
+    Then I should see the sub-curriculum
