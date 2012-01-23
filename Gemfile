@@ -15,6 +15,7 @@ gem 'inherited_resources'
 gem 'redcarpet'
 gem 'high_voltage'
 gem 'awesome_nested_set'
+gem 'nokogiri'
 
 # Gems used only for assets and not required
 # in production environments by default.
